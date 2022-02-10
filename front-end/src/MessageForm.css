@@ -1,0 +1,15 @@
+.MessageForm-form input,
+.MessageForm-form button,
+.MessageForm-form textarea {
+  margin: 5px auto; /* centered */
+  padding: 10px;
+  display: block;
+  width: 200px;
+}
+
+.MessageForm-feedback {
+  color: green;
+}
+.MessageForm-error {
+  color: red;
+}
