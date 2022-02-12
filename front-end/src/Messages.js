@@ -20,6 +20,8 @@ const Messages = ({ props }) => {
    * A nested function that fetches messages from the back-end server.
    */
   const fetchMessages = () => {
+    // setMessages([])
+    // setLoaded(false)
     axios
       .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/messages`)
       .then(response => {
@@ -45,9 +47,21 @@ const Messages = ({ props }) => {
     setMessages(newMessages) // save the new array
   }
 
-  // load data from server
+  // set up loading data from server when the component first loads
   useEffect(() => {
+    // fetch messages this once
     fetchMessages()
+
+    // set a timer to load data from server every n seconds
+    const intervalHandle = setInterval(() => {
+      fetchMessages()
+    }, 5000)
+
+    // return a function that will be called when this component unloads
+    return e => {
+      // clear the timer, so we don't still load messages when this component is not loaded anymore
+      clearInterval(intervalHandle)
+    }
   }, []) // putting a blank array as second argument will cause this function to run only once when component first loads
 
   return (

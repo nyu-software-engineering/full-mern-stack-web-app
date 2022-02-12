@@ -7,8 +7,8 @@ import './Message.css'
  */
 const Message = ({ props }) => {
   // format the date of the message nicely
-  const date = new Date(parseInt(props.created)).toLocaleDateString()
-  const time = new Date(parseInt(props.created)).toLocaleTimeString()
+  const date = new Date(props.createdAt).toLocaleDateString()
+  const time = new Date(props.createdAt).toLocaleTimeString()
 
   return (
     <>
