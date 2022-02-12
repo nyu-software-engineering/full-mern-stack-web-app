@@ -36,7 +36,7 @@ A monorepo containing:
 
 ## How the project was intiially set up from scratch...
 
-How the project was intially set up
+While you don't need to do this in order to simply run this app, here's how the project was intially set up
 
 - `mkdir my_project` to create project folder
 - `cd my_project` to go into the folder
