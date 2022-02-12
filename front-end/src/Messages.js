@@ -5,17 +5,27 @@ import loadingIcon from './loading.gif'
 import MessageForm from './MessageForm'
 import Message from './Message'
 
+/**
+ * A React component that shows a form the user can use to create a new message, as well as a list of any pre-existing messages.
+ * @param {*} param0 an object holding any props passed to this component from its parent component
+ * @returns The contents of this component, in JSX form.
+ */
 const Messages = ({ props }) => {
   const [messages, setMessages] = useState([])
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState('')
+  const [feedback, setFeedback] = useState('')
 
-  // load data from server
-  useEffect(() => {
+  /**
+   * A nested function that fetches messages from the back-end server.
+   */
+  const fetchMessages = () => {
     axios
-      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}`)
+      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/messages`)
       .then(response => {
-        setMessages(response.data)
+        // axios bundles up all response data in response.data property
+        const messages = response.data.messages
+        setMessages(messages)
       })
       .catch(err => {
         setError(err)
@@ -24,20 +34,43 @@ const Messages = ({ props }) => {
         // the response has been received, so remove the loading icon
         setLoaded(true)
       })
+  }
+
+  /**
+   * A nested function used to add a new message to the list of messages
+   * @param {*} message The new message to add to the list
+   */
+  const addMessageToList = message => {
+    const newMessages = [...messages, message] // make an array with all the old values plus the new one
+    setMessages(newMessages) // save the new array
+  }
+
+  // load data from server
+  useEffect(() => {
+    fetchMessages()
   }, []) // putting a blank array as second argument will cause this function to run only once when component first loads
 
   return (
     <>
       <h1>Leave a message!</h1>
-      <MessageForm />
+
+      {feedback && <p className="MessageForm-feedback">{feedback}</p>}
+      {error && <p className="MessageForm-error">{error}</p>}
+
+      <MessageForm
+        setError={setError}
+        setFeedback={setFeedback}
+        addMessageToList={addMessageToList}
+      />
 
       {error && <p className="Messages-error">{error}</p>}
-      {!loaded && <img src={loadingIcon} alt="lodaing" />}
+      {!loaded && <img src={loadingIcon} alt="loading" />}
       {messages.map(message => (
-        <Message key={message.id} props={message} />
+        <Message key={message._id} props={message} />
       ))}
     </>
   )
 }
 
+// make this component available to be imported into any other file
 export default Messages

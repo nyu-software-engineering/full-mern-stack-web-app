@@ -1,0 +1,25 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "coming soon!",
+  "main": "server.js",
+  "scripts": {
+    "start": "set NODE_ENV=production && node ./server",
+    "dev": "set NODE_ENV=development && nodemon ./server",
+    "test": "set NODE_ENV=test && echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}

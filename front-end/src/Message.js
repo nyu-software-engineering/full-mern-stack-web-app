@@ -1,9 +1,15 @@
 import './Message.css'
 
+/**
+ * A React component that represents one Message in the list of messages.
+ * @param {*} param0 an object holding any props and a few function definitions passed to this component from its parent component
+ * @returns The contents of this component, in JSX form.
+ */
 const Message = ({ props }) => {
   // format the date of the message nicely
   const date = new Date(parseInt(props.created)).toLocaleDateString()
   const time = new Date(parseInt(props.created)).toLocaleTimeString()
+
   return (
     <>
       <article className="Message-article">
@@ -17,4 +23,5 @@ const Message = ({ props }) => {
   )
 }
 
+// make this component available to be imported into any other file
 export default Message
