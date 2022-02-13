@@ -1,8 +1,6 @@
 import './Header.css'
 import logo from './logo.svg'
 import { Link } from 'react-router-dom'
-import { useToken } from './auth/useToken'
-import { useUser } from './auth/useUser'
 
 /**
  * A React component that is used for the header displayed at the top of every page of the site.
@@ -10,14 +8,6 @@ import { useUser } from './auth/useUser'
  * @returns The contents of this component, in JSX form.
  */
 const Header = props => {
-  const [token, setToken] = useToken()
-  const user = useUser()
-
-  const handleLogout = e => {
-    e.preventDefault()
-    setToken(null)
-  }
-
   return (
     <header className="Header-header">
       <nav className="Header-navbar">
@@ -30,15 +20,6 @@ const Header = props => {
           </li>
           <li className="nav-item">
             <Link to="/messages">Messages</Link>
-          </li>
-          <li className="nav-item">
-            {user ? (
-              <Link to="/logout" onClick={handleLogout}>
-                Log out {user.handle}
-              </Link>
-            ) : (
-              <Link to="/login">Log in</Link>
-            )}
           </li>
         </ul>
       </nav>
