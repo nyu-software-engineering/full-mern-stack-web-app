@@ -1,8 +1,22 @@
-A monorepo containing:
+This is a so-called "monorepo" - a single repository containing all the components necessary to build and run an app:
 
 - a front-end built with [React.js](https://reactjs.org)
 - a back-end built with [Express.js](http://express.js.com)
 - a [MongoDB](https://mongodb.com) database connected to the back-end with [mongoose](https://mongoosejs.com)
+
+## Exercise Requirements
+
+To complete this exercise:
+
+1. run this app locally on your own machine (instructions for launching the app below)
+1. add a new page to the app called "About Us", where you have written a few paragraphs about yourself and included a photo of yourself (this does not require any modifications to the back-end code).
+1. share a public link to your local instance of the app below (see `ngrok` instructions below for generating a public link)
+
+When you have completed the exercise, leave your local copy of the app running, enter the public link to it here, and push your code changes to GitHub:
+
+```
+http://replace-with-your-ngrok-public-https-link
+```
 
 ## How to launch the app
 
