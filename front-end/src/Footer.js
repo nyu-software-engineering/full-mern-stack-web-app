@@ -5,7 +5,7 @@ import './Footer.css'
  * @param {*} param0 an object holding any props passed to this component from its parent component
  * @returns The contents of this component, in JSX form.
  */
-const Footer = ({ props }) => {
+const Footer = props => {
   return (
     <footer className="Footer-footer">
       &copy;2022. Foo Barstein. All rights reserved.

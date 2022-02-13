@@ -10,7 +10,7 @@ import Message from './Message'
  * @param {*} param0 an object holding any props passed to this component from its parent component
  * @returns The contents of this component, in JSX form.
  */
-const Messages = ({ props }) => {
+const Messages = props => {
   const [messages, setMessages] = useState([])
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState('')
@@ -80,7 +80,7 @@ const Messages = ({ props }) => {
       {error && <p className="Messages-error">{error}</p>}
       {!loaded && <img src={loadingIcon} alt="loading" />}
       {messages.map(message => (
-        <Message key={message._id} props={message} />
+        <Message key={message._id} message={message} />
       ))}
     </>
   )

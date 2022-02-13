@@ -1,0 +1,15 @@
+.Signup-form input,
+.Signup-form button,
+.Signup-form textarea {
+  margin: 5px auto; /* centered */
+  padding: 10px;
+  display: block;
+  width: 200px;
+}
+
+.Signup-feedback {
+  color: green;
+}
+.Signup-error {
+  color: red;
+}

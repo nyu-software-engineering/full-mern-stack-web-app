@@ -7,7 +7,7 @@ import './MessageForm.css'
  * @param {*} param0 an object holding any props and a few function definitions passed to this component from its parent component
  * @returns The contents of this component, in JSX form.
  */
-const MessageForm = ({ props, setError, setFeedback, addMessageToList }) => {
+const MessageForm = ({ setError, setFeedback, addMessageToList }) => {
   // create a state variable for each form field
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')

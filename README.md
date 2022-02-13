@@ -8,8 +8,9 @@ A monorepo containing:
 
 ### Get the code
 
-1. Clone this repository to your local machine
-2. Navigate into the project directory
+1. Fork this repository
+1. Clone your fork of this repository to your local machine
+1. Navigate into the project directory
 
 ### Build and launch the back end
 
@@ -28,6 +29,13 @@ A monorepo containing:
 - install and run [docker desktop](https://www.docker.com/get-started)
 - create a [dockerhub](https://hub.docker.com/signup) account
 - run command, `docker run --name mongodb_dockerhub -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -d mongo:latest`
+
+The back-end code will integrate with this database. However, it may be occasionally useful interact with the database directly from the command line:
+
+- connect to the database server from the command line: `docker exec -ti mongodb_dockerhub mongo -u admin -p secret`
+- show the available databases: `show dbs`
+- select the database used by this app: `use example-mern-stack-app`
+- show the documents stored in the `messages` collection: `db.messages.find()` - this will be empty at first, but will later be populated by the app.
 
 ### Visit the web app in your web browser
 

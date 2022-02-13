@@ -5,16 +5,16 @@ import './Message.css'
  * @param {*} param0 an object holding any props and a few function definitions passed to this component from its parent component
  * @returns The contents of this component, in JSX form.
  */
-const Message = ({ props }) => {
+const Message = ({ message }) => {
   // format the date of the message nicely
-  const date = new Date(props.createdAt).toLocaleDateString()
-  const time = new Date(props.createdAt).toLocaleTimeString()
+  const date = new Date(message.createdAt).toLocaleDateString()
+  const time = new Date(message.createdAt).toLocaleTimeString()
 
   return (
     <>
       <article className="Message-article">
-        <h2>{props.name}</h2>
-        <p>{props.message}</p>
+        <h2>{message.name}</h2>
+        <p>{message.message}</p>
         <time>
           {date} at {time}
         </time>

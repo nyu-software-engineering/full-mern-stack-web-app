@@ -6,7 +6,7 @@ import './Home.css'
  * @param {*} param0 an object holding any props passed to this component from its parent component
  * @returns The contents of this component, in JSX form.
  */
-const Home = ({ props }) => {
+const Home = props => {
   return (
     <>
       <h1>Hello and welcome!</h1>

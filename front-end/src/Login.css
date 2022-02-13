@@ -1,0 +1,15 @@
+.Login-form input,
+.Login-form button,
+.Login-form textarea {
+  margin: 5px auto; /* centered */
+  padding: 10px;
+  display: block;
+  width: 200px;
+}
+
+.Login-feedback {
+  color: green;
+}
+.Login-error {
+  color: red;
+}
