@@ -9,7 +9,7 @@ This is a so-called "monorepo" - a single repository containing all the componen
 To complete this exercise:
 
 1. run this app locally on your own machine (instructions for launching the app below)
-1. add a new page to the app called "About Us", where you have written a few paragraphs about yourself and included a photo of yourself (this does not require any modifications to the back-end code).
+1. add a new page to the app called "About Us", where you have written a few paragraphs about yourself and included a photo of yourself (this does not require any modifications to the back-end code or database).
 1. share a public link to your local instance of the app below (see `ngrok` instructions below for generating a public link)
 
 When you have completed the exercise, leave your local copy of the app running, enter the public link to it here, and push your code changes to GitHub:
@@ -22,7 +22,7 @@ http://replace-with-your-ngrok-public-https-link
 
 ### Get the code
 
-1. Fork this repository
+1. Fork this repository (accepting this as a GitHub Classroom assignment does this for you)
 1. Clone your fork of this repository to your local machine
 1. Navigate into the project directory
 
