@@ -26,18 +26,6 @@ http://replace-with-your-ngrok-public-https-link
 1. Clone your fork of this repository to your local machine
 1. Navigate into the project directory
 
-### Build and launch the back end
-
-1. Navigate into the `back-end` directory
-1. Run `npm install` to install all dependencies listed in the `package.json` file.
-1. Run `npm start` to launch the back-end server
-
-### Build and launch the front end
-
-1. Navigate into the `front-end` directory
-1. Run `npm install` to install all dependencies listed in the `package.json` file.
-1. Run `npm start` to launch the React.js server
-
 ### Build and launch the database
 
 - install and run [docker desktop](https://www.docker.com/get-started)
@@ -50,6 +38,20 @@ The back-end code will integrate with this database. However, it may be occasion
 - show the available databases: `show dbs`
 - select the database used by this app: `use example-mern-stack-app`
 - show the documents stored in the `messages` collection: `db.messages.find()` - this will be empty at first, but will later be populated by the app.
+
+If you have trouble running Docker on your computer, use a database hosted on [MongoDB Atlas](https://www.mongodb.com/atlas) instead. Atlas is a "cloud"" MongoDB database service with a free option. Create a database there, and make note of the connection string. In the `.env` file within the `back-end` directory, replace the given `DB_CONNECTION_STRING` value with this one.
+
+### Build and launch the back end
+
+1. Navigate into the `back-end` directory
+1. Run `npm install` to install all dependencies listed in the `package.json` file.
+1. Run `npm start` to launch the back-end server
+
+### Build and launch the front end
+
+1. Navigate into the `front-end` directory
+1. Run `npm install` to install all dependencies listed in the `package.json` file.
+1. Run `npm start` to launch the React.js server
 
 ### Visit the web app in your web browser
 
