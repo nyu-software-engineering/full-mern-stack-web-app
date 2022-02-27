@@ -22,7 +22,7 @@ mongoose
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
 
-// a route to handle logging out users
+// a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
   // load all messages from database
   try {
@@ -40,6 +40,23 @@ app.get('/messages', async (req, res) => {
   }
 })
 
+// a route to handle fetching a single message by its id
+app.get('/messages/:messageId', async (req, res) => {
+  // load all messages from database
+  try {
+    const messages = await Message.find({ _id: req.params.messageId })
+    res.json({
+      messages: messages,
+      status: 'all good',
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve messages from the database',
+    })
+  }
+})
 // a route to handle logging out users
 app.post('/messages/save', async (req, res) => {
   // try to save the message to the database

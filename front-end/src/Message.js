@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Message.css'
 
 /**
@@ -6,6 +7,7 @@ import './Message.css'
  * @returns The contents of this component, in JSX form.
  */
 const Message = ({ message }) => {
+  // this component expects to be passed all the details of the message it should display
   // format the date of the message nicely
   const date = new Date(message.createdAt).toLocaleDateString()
   const time = new Date(message.createdAt).toLocaleTimeString()
@@ -13,7 +15,9 @@ const Message = ({ message }) => {
   return (
     <>
       <article className="Message-article">
-        <h2>{message.name}</h2>
+        <h2>
+          <Link to={`/messages/${message._id}`}>{message.name}</Link>
+        </h2>
         <p>{message.message}</p>
         <time>
           {date} at {time}
