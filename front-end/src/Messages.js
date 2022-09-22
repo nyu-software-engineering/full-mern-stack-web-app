@@ -30,7 +30,8 @@ const Messages = props => {
         setMessages(messages)
       })
       .catch(err => {
-        setError(err)
+        const errMsg = JSON.stringify(err, null, 2) // convert error object to a string so we can simply dump it to the screen
+        setError(errMsg)
       })
       .finally(() => {
         // the response has been received, so remove the loading icon
