@@ -109,6 +109,6 @@ Initial set up of MongoDB database:
 - create a [dockerhub](https://hub.docker.com/signup) account
 - run command, `docker run --name mongodb_dockerhub -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -d mongo:latest`
 - run command, `docker ps` to verify docker is running and note the port number
-- access the mongo shell with `docker exec -it mongodb_dockerhub mongo -u admin -p secret`
+- access the mongo shell with `docker exec -it mongodb_dockerhub mongosh -u admin -p secret`
 - run command, `show dbs` within the mongo shell to see a list of databases
 - type `exit` to quit the shell after you confirm it is working
