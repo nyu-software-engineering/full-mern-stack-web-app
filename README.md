@@ -56,7 +56,7 @@ If you have trouble running Docker on your computer, use a database hosted on [M
 ### Visit the web app in your web browser
 
 - install [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-- navigate your web browser to http://localhost:3000
+- navigate your web browser to http://localhost:7002
 
 ### Let others view your app
 
