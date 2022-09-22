@@ -63,9 +63,21 @@ If you have trouble running Docker on your computer, use a database hosted on [M
 When running locally on your machine, others can't access the app. To give temporary access to others to run the app on your machine:
 
 - install [ngrok](https://ngrok.com/download)
-- run the command, `ngrok http 4000`
 
-ngrok will then spit out a temporary URL that you can share with others to give them access to the app running on your machine
+Create a public URL that points to your front-end:
+
+- run the command, `ngrok http 7002` from within the `front-end` directory to generate a public URL that forwards to your React.js front-end application.
+- ngrok will then spit out a temporary URL that you can share with others to give them access to the front-end app running on your machine.
+
+Create a public URL that points to your back-end:
+
+- run the command, `ngrok http 5002` from within the `back-end` directory to generate a public URL that forwards to your express.js back-end application.
+- ngrok will then spit out a temporary URL that forwardsw to the back-end app running on your machine.
+
+Update your configuration files:
+
+- update the `FRONT_END_URI` and `REACT_APP_SERVER_HOSTNAME` in the two `.env` files (one in each the `front-end` and `back-end` directories) to refer to the relevant `ngrok`-supplied URLs instead of the `localhost` URLs.
+- quit (`Control`-C) and restart (`npm start`) both the front-end and back-end applications to pick up the new configurations.
 
 ## How the project was intiially set up from scratch...
 
