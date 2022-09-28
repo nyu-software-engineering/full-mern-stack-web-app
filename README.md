@@ -68,16 +68,7 @@ Create a public URL that points to your front-end:
 
 - run the command, `ngrok http 7002` from within the `front-end` directory to generate a public URL that forwards to your React.js front-end application.
 - ngrok will then spit out a temporary URL that you can share with others to give them access to the front-end app running on your machine.
-
-Create a public URL that points to your back-end:
-
-- run the command, `ngrok http 5002` from within the `back-end` directory to generate a public URL that forwards to your express.js back-end application.
-- ngrok will then spit out a temporary URL that forwardsw to the back-end app running on your machine.
-
-Update your configuration files:
-
-- update the `FRONT_END_URI` and `REACT_APP_SERVER_HOSTNAME` in the two `.env` files (one in each the `front-end` and `back-end` directories) to refer to the relevant `ngrok`-supplied URLs instead of the `localhost` URLs.
-- quit (`Control`-C) and restart (`npm start`) both the front-end and back-end applications to pick up the new configurations.
+- note that when loading the public `ngrok` URL for the front-end in a web browser, the connection to the back-end, which is running on `localhost`, will be blocked by security restrictions of the web browser... this is ok for our purposes, since the additional work you are asked to do in this assignment does not require a connection to the back-end or database.
 
 ## How the project was intiially set up from scratch...
 
@@ -86,25 +77,25 @@ While you don't need to do this in order to simply run this app, here's how the 
 - `mkdir my_project` to create project folder
 - `cd my_project` to go into the folder
 
-Initial set up of React.js front end:
+### Initial set up of React.js front end
 
 - go into the main project folder and...
 - `npx create-react-app front-end` - to create a boilerplate React project for the front-end
 - `cd front-end` - to go into the folder that has been created
-- `npm install react-router-dom` - to install useful routing functionality
+- `npm install react-router-dom` - to install a 3rd-party module with useful routing functionality
 - `npm install axios` - to install a useful module for making requests to servers
-- added `.env` file with port setting at which to run React locally when developing
+- added `.env` file with environment variables and the port setting at which to run React locally when developing
 - ran `npm start` to start up the local React development server
 - start building out the rest of the code in the `src` directory
 
-Initial set up of Express.js back end:
+### Initial set up of Express.js back end
 
 - go into the main project folder and...
 - `mkdir back-end` to create a folder that will hold the back-end code
 - `cd back-end` - to go into the folder
 - `npm init -y` - to initialize this folder as an npm-powered project
 - `npm install -g nodemon` - to globally install a useful module for hot restarting of the server code
-- `npm install express` - install the main server framework
+- `npm install express` - install the main server framework we will rely on to handle basic server tasks
 - `npm install mongoose` - to install a useful module for dealing with MongoDB databases
 - `npm install dotenv` - to install a useful module for reading environment variables from `.env` files
 - `npm install cors` - to install a useful module for allowing [cross-origin requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
