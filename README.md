@@ -10,13 +10,6 @@ To complete this exercise:
 
 1. run this app locally on your own machine (instructions for launching the app below)
 1. add a new page to the app called "About Us", where you have written a few paragraphs about yourself and included a photo of yourself (this does not require any modifications to the back-end code or database).
-1. share a public link to your local instance of the app below (see `ngrok` instructions below for generating a public link)
-
-When you have completed the exercise, leave your local copy of the app running, enter the public link to it here, and push your code changes to GitHub:
-
-```
-http://replace-with-your-ngrok-public-https-link
-```
 
 ## How to launch the app
 
@@ -58,19 +51,7 @@ If you have trouble running Docker on your computer, use a database hosted on [M
 - install [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - navigate your web browser to http://localhost:7002
 
-### Let others view your app
-
-When running locally on your machine, others can't access the app. To give temporary access to others to run the app on your machine:
-
-- install [ngrok](https://ngrok.com/download)
-
-Create a public URL that points to your front-end:
-
-- run the command, `ngrok http 7002` from within the `front-end` directory to generate a public URL that forwards to your React.js front-end application.
-- ngrok will then spit out a temporary URL that you can share with others to give them access to the front-end app running on your machine.
-- note that when loading the public `ngrok` URL for the front-end in a web browser, the connection to the back-end, which is running on `localhost`, will be blocked by security restrictions of the web browser... this is ok for our purposes, since the additional work you are asked to do in this assignment does not require a connection to the back-end or database.
-
-## How the project was intiially set up from scratch...
+## How the project was intially set up from scratch...
 
 While you don't need to do this in order to simply run this app, here's how the project was intially set up
 
