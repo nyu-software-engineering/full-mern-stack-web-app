@@ -9,7 +9,7 @@ This is a so-called "monorepo" - a single repository containing all the componen
 To complete this exercise:
 
 1. run this app locally on your own machine (instructions for launching the app below)
-1. add a new page to the app called "About Us", where you have written a few paragraphs about yourself and included a photo of yourself (this does not require any modifications to the back-end code or database).
+1. add a new page to the app called "About Us", where you have written a few paragraphs about yourself and included a photo of yourself. The page content, including all text and the image url must be retrieved from a new route you create on the back-end.
 
 ## How to launch the app
 
