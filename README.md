@@ -1,4 +1,6 @@
-This is a so-called "monorepo" - a single repository containing all the components necessary to build and run an app:
+# Full MERN-Stack Web App Exercise
+
+This is a so-called "`monorepo`" - a single repository containing all the components necessary to build and run an app:
 
 - a front-end built with [React.js](https://reactjs.org)
 - a back-end built with [Express.js](http://express.js.com)

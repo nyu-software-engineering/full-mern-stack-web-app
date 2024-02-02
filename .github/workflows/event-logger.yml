@@ -1,0 +1,56 @@
+name: log github events
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    types: [opened, closed]
+    branches: [main, master]
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    env:
+      COMMIT_LOG_API: ${{ secrets.COMMIT_LOG_API }}
+      GITHUB_LOGIN: ${{ github.actor }} # github login also available in github.triggering_actor, github.event.sender.login
+      COMMITS: ${{ toJSON(github.event.commits) }}
+      REPOSITORY_URL: ${{ github.repositoryUrl }}
+      EVENT_TYPE: ${{ github.event_name }}
+      EVENT_ACTION: ${{ github.event.action }}
+      PR_MERGED: ${{ github.event.pull_request.merged }}
+      PR_CREATED_AT: ${{ github.event.pull_request.created_at}}
+      PR_CLOSED_AT: ${{ github.event.pull_request.closed_at}}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # this is important so git fetches all history.. the actions/checkout by default fetches all history as one commit which throws off stats
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "^3.9"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --user pipenv
+          pipenv install pytz
+          pipenv install python-dateutil
+          pipenv install build
+          pipenv install requests
+          pipenv install gitcommitlogger
+      - name: Log pull request opened
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        run: |
+          pipenv run gitcommitlogger -r $(echo $REPOSITORY_URL) -t pull_request_opened -d $(echo $PR_CREATED_AT) -un $(echo $GITHUB_LOGIN) -o commit_stats.csv -u $(echo $COMMIT_LOG_API) -v
+      - name: Log pull request closed and merged
+        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+        run: |
+          echo $COMMITS > commits.json
+          cat commits.json # debugging
+          pipenv run gitcommitlogger -r $(echo $REPOSITORY_URL) -t pull_request_merged -d $(echo $PR_CLOSED_AT) -un $(echo $GITHUB_LOGIN) -i commits.json -o commit_stats.csv -u $(echo $COMMIT_LOG_API) -v
+      - name: Log pull request closed without merge
+        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == false
+        run: |
+          pipenv run gitcommitlogger -r $(echo $REPOSITORY_URL) -t pull_request_closed -d $(echo $PR_CLOSED_AT) -un $(echo $GITHUB_LOGIN) -o commit_stats.csv -u $(echo $COMMIT_LOG_API) -v
+      - name: Log push
+        if: github.event_name == 'push'
+        run: |
+          echo $COMMITS > commits.json
+          cat commits.json # debugging
+          pipenv run gitcommitlogger -r $(echo $REPOSITORY_URL) -t $(echo $EVENT_TYPE) -i commits.json -o commit_stats.csv -u $(echo $COMMIT_LOG_API) -v
