@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# To activate this commit-msg hook, run the following commands from the main repository directory command shell:
+#   chmod a+x .githooks/commit-msg # make executable
+#   git config core.hooksPath ".githooks" # enable hook
+
+# Public: Current API version in format "x.y.z".
+export API_VERSION="1.0.0"
+
+#
+# Public: git commit-msg hook to reject multi-line commit messages.
+#
+# Checks whether git commit message is a single line or multiline and rejects multi-line commits.
+# git stores commit messages in a temporary file, .git/COMMIT_EDITMSG
+#
+# Exits with error code 1 if multi-line commit message found
+
+reject_multiline_commit_messages() {
+    # Read the commit message temporary file
+    commit_message=$(cat .git/COMMIT_EDITMSG)
+
+    # Check if the commit message contains one or more line breaks
+    if [[ "$commit_message" == *$'\n'* ]]; then
+        echo "Multi-line commit messages are forbidden!  Try committing again."
+        exit 1
+    fi
+}
+
+reject_multiline_commit_messages # Exit with error if multi-line message found
+exit 0 # Proceed with commit otherwise
