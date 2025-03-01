@@ -1,14 +1,15 @@
 name: log github events
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, pipfile-experiment]
   pull_request:
     types: [opened, closed]
-    branches: [main, master]
+    branches: [main, master, pipfile-experiment]
 jobs:
   log:
     runs-on: ubuntu-latest
     env:
+      PIPENV_PIPFILE: .github/workflows/Pipfile # so this script doesn't use the Pipfile in the root directory
       COMMIT_LOG_API: ${{ secrets.COMMIT_LOG_API }}
       GITHUB_LOGIN: ${{ github.actor }} # github login also available in github.triggering_actor, github.event.sender.login
       COMMITS: ${{ toJSON(github.event.commits) }}
@@ -29,11 +30,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user pipenv
-          pipenv install pytz
-          pipenv install python-dateutil
-          pipenv install build
-          pipenv install requests
-          pipenv install gitcommitlogger
+          pipenv --python $(which python)
+          pipenv install
       - name: Log pull request opened
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         run: |
