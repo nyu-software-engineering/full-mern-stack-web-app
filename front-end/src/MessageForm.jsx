@@ -22,7 +22,7 @@ const MessageForm = ({ setError, setFeedback, addMessageToList }) => {
     // send data to server... getting server host name from .env environment variables file to make it easy to swap server hosts in one place
     axios
       // post new message to server
-      .post(`${process.env.REACT_APP_SERVER_HOSTNAME}/messages/save`, {
+      .post(`${import.meta.env.VITE_SERVER_HOSTNAME}/messages/save`, {
         name: name,
         message: message,
       })

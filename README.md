@@ -62,14 +62,20 @@ While you don't need to do this in order to simply run this app, here's how the 
 
 ### Initial set up of React.js front end
 
+Since originally creating the front-end, the [create-react-app](https://create-react-app.dev/) build tool we used has become [deprecated](https://react.dev/blog/2025/02/14/sunsetting-create-react-app), no longer recommended. So we have migrated the codebase to use [Vite](https://vite.dev/) instead. **Better to start a new project with Vite from the start.**
+
+Nevertheless, here are the originally setup steps we used with `create-react-app` to set up the front-end:
+
 - go into the main project folder and...
-- `npx create-react-app front-end` - to create a boilerplate React project for the front-end (note `create-react-app` is now [deprecated](https://react.dev/blog/2025/02/14/sunsetting-create-react-app))
+- `npx create-react-app front-end` - to create a boilerplate React project for the front-end
 - `cd front-end` - to go into the folder that has been created
 - `npm install react-router-dom` - to install a 3rd-party module with useful routing functionality
 - `npm install axios` - to install a useful module for making requests to servers
 - added `.env` file with environment variables and the port setting at which to run React locally when developing
 - ran `npm start` to start up the local React development server
 - start building out the rest of the code in the `src` directory
+
+We followed a few different migration guides to switch to Vite, including [this](https://cathalmacdonnacha.com/migrating-from-create-react-app-cra-to-vite), [this](https://vite.dev/config/#using-environment-variables-in-config), and [this](https://vite.dev/guide/env-and-mode). We also had to use a `.jsx` extension on all files containing JSX, had to rename our src/index.js to src/index.tsx, and had to modify the `tsconfig.json` to allow non-Typescript code.
 
 ### Initial set up of Express.js back end
 

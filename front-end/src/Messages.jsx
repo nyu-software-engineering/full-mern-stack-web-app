@@ -23,7 +23,7 @@ const Messages = props => {
     // setMessages([])
     // setLoaded(false)
     axios
-      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/messages`)
+      .get(`${import.meta.env.VITE_SERVER_HOSTNAME}/messages`)
       .then(response => {
         // axios bundles up all response data in response.data property
         const messages = response.data.messages

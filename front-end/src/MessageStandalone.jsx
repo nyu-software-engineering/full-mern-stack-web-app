@@ -29,7 +29,7 @@ const MessageStandalone = ({ message }) => {
     // immediately invoke a function fetch the desired message from the server
     const fetchMessage = async messageId => {
       const response = await axios.get(
-        `${process.env.REACT_APP_SERVER_HOSTNAME}/messages/${messageId}`
+        `${import.meta.env.VITE_SERVER_HOSTNAME}/messages/${messageId}`,
       )
       // console.log(JSON.stringify(response.data))
       // assuming we receive an array of messages with the matching message in first position...
