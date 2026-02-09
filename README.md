@@ -46,7 +46,7 @@ If you have trouble running Docker on your computer, use a database hosted on [M
 
 1. Navigate into the `front-end` directory
 1. Run `npm install` to install all dependencies listed in the `package.json` file.
-1. Run `npm start` to launch the React.js server
+1. Run `npm run dev` to launch the React.js development web server
 
 ### Visit the web app in your web browser
 
