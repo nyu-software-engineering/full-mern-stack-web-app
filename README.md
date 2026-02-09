@@ -75,7 +75,7 @@ Nevertheless, here are the originally setup steps we used with `create-react-app
 - ran `npm start` to start up the local React development server
 - start building out the rest of the code in the `src` directory
 
-We followed a few different migration guides to switch to Vite, including [this](https://cathalmacdonnacha.com/migrating-from-create-react-app-cra-to-vite), [this](https://vite.dev/config/#using-environment-variables-in-config), and [this](https://vite.dev/guide/env-and-mode). We also had to use a `.jsx` extension on all files containing JSX, had to rename our src/index.js to src/index.tsx, and had to modify the `tsconfig.json` to allow non-Typescript code.
+We followed a few different migration guides to switch to Vite, including [this](https://cathalmacdonnacha.com/migrating-from-create-react-app-cra-to-vite), [this](https://vite.dev/config/#using-environment-variables-in-config), and [this](https://vite.dev/guide/env-and-mode). We also had to use a `.jsx` extension on all files containing JSX, had to rename our `src/index.js` to `src/index.tsx`, and had to modify `tsconfig.json` to allow non-Typescript code.
 
 ### Initial set up of Express.js back end
 
