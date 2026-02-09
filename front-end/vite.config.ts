@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
-      //   viteTsconfigPaths(),
+      viteTsconfigPaths(),
       svgr({
         include: '**/*.svg?react',
       }),
