@@ -63,7 +63,7 @@ While you don't need to do this in order to simply run this app, here's how the 
 ### Initial set up of React.js front end
 
 - go into the main project folder and...
-- `npx create-react-app front-end` - to create a boilerplate React project for the front-end
+- `npx create-react-app front-end` - to create a boilerplate React project for the front-end (note `create-react-app` is now [deprecated](https://react.dev/blog/2025/02/14/sunsetting-create-react-app))
 - `cd front-end` - to go into the folder that has been created
 - `npm install react-router-dom` - to install a 3rd-party module with useful routing functionality
 - `npm install axios` - to install a useful module for making requests to servers
